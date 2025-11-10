@@ -4,16 +4,19 @@ YT.query = {
     if (term === YT.live.channelID || term === "") {
       return;
     }
+
     YT.live.stop();
 
+    // Check if term is numeric (group ID)
     if (/^\d+$/.test(term)) {
       YT.robloxApi.getGroupData(term)
         .then(function (groupData) {
           if (!groupData || !groupData.user) {
-            alert("No group found with ID "" + term + """);
+            alert("No group found with ID \"" + term + "\"");
             location.href = baseURL;
             return;
           }
+
           YT.updateManager.updateChannelID(term);
           YT.updateManager.updateCover(groupData.user[2].count);
           YT.updateManager.updateName(groupData.user[0].count);
@@ -24,25 +27,26 @@ YT.query = {
         })
         .catch(function (error) {
           console.error("Error fetching group data:", error);
-          alert("No group found with ID "" + term + """);
-          location.href = baseURL;
+          alert("No group found with ID \"" + term + "\"");
+          //location.href = baseURL;
         });
-    }
-    else {
+    } else {
+      // Otherwise, treat as search term
       YT.robloxApi.searchGroups(term)
         .then(function (res) {
           if (!res || !res.data || !res.data.length) {
-            alert("No groups found matching "" + term + """);
-            location.href = baseURL;
+            alert("No groups found matching \"" + term + "\"");
+            //location.href = baseURL;
             return;
           }
+
           const foundId = res.data[0].id.toString();
           YT.query.newSearch(foundId);
         })
         .catch(function (error) {
           console.error("Error searching groups:", error);
-          alert("No groups found matching "" + term + """);
-          location.href = baseURL;
+          alert("No groups found matching \"" + term + "\"");
+          //location.href = baseURL;
         });
     }
   },

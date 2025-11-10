@@ -1,6 +1,6 @@
 // Roblox Open Cloud API Service
 YT.robloxApi = {
-  baseUrl: "https://apis.roblox.com/cloud/v2",
+  baseUrl: "https://corsproxy.io/?https://groups.roblox.com/v1",
   apiKey: null, // API key for Open Cloud requests
   apiKeyFetchUrl: "https://bgcounts.bgtrack.net/roblox-group/keys.json",
   isApiKeyFetching: false, // Prevent multiple simultaneous fetches
@@ -33,6 +33,7 @@ YT.robloxApi = {
       method: 'GET',
       timeout: 10000 // 10 second timeout
     }).then((data) => {
+      data = data['keys'];
       this.isApiKeyFetching = false;
       
       // Assume the response contains an API key
@@ -114,7 +115,9 @@ YT.robloxApi = {
   // Get group information by ID
   getGroupInfo: function(groupId) {
     const url = `${this.baseUrl}/groups/${groupId}`;
-    return this.makeCloudRequest(url);
+    res = this.makeCloudRequest(url);
+    console.log(res)
+    return res;
   },
   
   // Get group member count
@@ -130,13 +133,14 @@ YT.robloxApi = {
   
   // Get group icon
   getGroupIcon: function(groupId) {
-    const url = `https://thumbnails.roblox.com/v1/groups/icons?groupIds=${groupId}&size=420x420&format=Png&isCircular=false`;
+    const url = `https://corsproxy.io/?https://thumbnails.roblox.com/v1/groups/icons?groupIds=${groupId}&size=420x420&format=Png&isCircular=false`;
     return $.getJSON(url);
   },
   
   // Search for groups by name
   searchGroups: function(keyword) {
     const url = `${this.baseUrl}/groups/search?keyword=${encodeURIComponent(keyword)}&limit=10`;
+    console.log(url)
     return this.makeCloudRequest(url);
   },
   

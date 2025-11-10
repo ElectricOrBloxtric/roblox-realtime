@@ -69,11 +69,11 @@ _Roblox Realtime Embed_
 
 # Try it yourself!
 
-- [Roblox](https://akshatmittal.com/youtube-realtime/#!/1200769 "Roblox's Realtime Member Count")
-- [Adopt Me!](https://akshatmittal.com/youtube-realtime/#!/733 "Adopt Me!'s Realtime Member Count")
-- [Brookhaven](https://akshatmittal.com/youtube-realtime/#!/4199740 "Brookhaven's Realtime Member Count")
-- [Phantom Forces](https://akshatmittal.com/youtube-realtime/#!/634617 "Phantom Forces's Realtime Member Count")
-- [Arsenal](https://akshatmittal.com/youtube-realtime/#!/2998087 "Arsenal's Realtime Member Count")
+- [Roblox](https://akshatmittal.com#!/1200769 "Roblox's Realtime Member Count")
+- [Adopt Me!](https://akshatmittal.com#!/733 "Adopt Me!'s Realtime Member Count")
+- [Brookhaven](https://akshatmittal.com#!/4199740 "Brookhaven's Realtime Member Count")
+- [Phantom Forces](https://akshatmittal.com#!/634617 "Phantom Forces's Realtime Member Count")
+- [Arsenal](https://akshatmittal.com#!/2998087 "Arsenal's Realtime Member Count")
 
 # License
 
@@ -85,7 +85,7 @@ This project uses a part of code from WrapPixel.
 
 # Disclaimer
 
-The project forks and code by default redirects back to this repo. You can view the instructions to modify the code [here](https://github.com/akshatmittal/youtube-realtime/issues/14#issuecomment-247537299).
+The project forks and code by default redirects back to this repo. You can view the instructions to modify the code [here](https://github.com/akshatmittalissues/14#issuecomment-247537299).
 
 # Support
 

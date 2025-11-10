@@ -5,10 +5,7 @@ YT.urls = {
       YT.query.newSearch(location.hash.split("!/")[1]);
     } else {
       var coolGuys = [
-        "UCBJycsmduvYEL83R_U4JriQ",
-        "UCtinbF-Q-fVthA0qrFQTgXQ",
-        "UCp0hYYBW6IMayGgR-WeoCvQ",
-        "UCBJycsmduvYEL83R_U4JriQ",
+        "frutiger-aero-group"
       ];
       YT.query.newSearch(coolGuys[Math.floor(Math.random() * coolGuys.length)]);
     }
