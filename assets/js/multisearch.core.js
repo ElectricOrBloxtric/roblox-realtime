@@ -1,6 +1,5 @@
-YT.groupSearch = {
-YT.groupSearch = {
-  getResults(query) {
+YT.multisearch = {
+  getResults: function (query) {
     YT.robloxApi.searchGroups(query)
       .then(data => {
         $("#results").empty();
@@ -12,11 +11,11 @@ YT.groupSearch = {
       });
   },
 
-  fetchDetails(groupId) {
+  fetchDetails: function (groupId) {
     YT.robloxApi.getGroupData(groupId)
       .then(groupData => {
         $("#results").append(
-          YT.groupSearch.makeHtml(groupData.name, groupData.icon, groupId)
+          YT.multisearch.makeHtml(groupData.name, groupData.icon, groupId)
         );
       })
       .catch(error => {
@@ -24,7 +23,7 @@ YT.groupSearch = {
       });
   },
 
-  makeHtml(name, imageUrl, id) {
+  makeHtml: function (name, imageUrl, id) {
     const $icon = $("<div>", {
       class: "round align-self-center",
       style: `background:url('${imageUrl}') center/cover`
@@ -37,26 +36,27 @@ YT.groupSearch = {
         .append($icon).append($info)
       )
       .on("click", () => {
-        window.open(`/group/${id}`);
+        window.open(`#!/${id}`);
         this.reset();
       });
   },
 
-  reset() {
+  reset: function () {
     $(".super-search,.dark-bg").fadeOut(400, () => {
       $("#results").empty();
       $("#yt_searchvalue_m").val("");
     });
   },
 
-  init() {
-    $("#yt_comrest").on("click", this.reset);
-    $("#yt_search_m, #yt_searchbutton_m")
-      .on("submit click", e => {
-        e.preventDefault();
-        this.getResults($("#yt_searchvalue_m").val());
-      });
+  bind: function () {
+    $("#yt_comrest").on("click", this.reset.bind(this));
+    $("#yt_search_m").on("submit", (e) => {
+      e.preventDefault();
+      this.getResults($("#yt_searchvalue_m").val());
+    });
+    $("#yt_searchbutton_m").on("click", (e) => {
+      e.preventDefault();
+      this.getResults($("#yt_searchvalue_m").val());
+    });
   }
 };
-
-YT.groupSearch.init();
